@@ -1,5 +1,13 @@
 ﻿Console.WriteLine("Please give us your name!");
 string name = Console.ReadLine();
+
+string greeting = name switch 
+{
+    "Adam" => "Hello Adam",
+    _ => "Who are you?"
+};
+Console.WriteLine(greeting);
+
 switch(name)
 {
     case "Adam":
@@ -33,5 +41,22 @@ switch(feelingRating)
     default:
     Console.WriteLine("Sorry, what you put in is not what we asked for trying again");
     break;
-
 }
+
+
+Console.WriteLine("How were you feeling yesterday on a scale of 1-5?");
+string ratingInput = Console.ReadLine();
+int yesterdayRating = int.Parse(ratingInput);
+
+string response = yesterdayRating switch
+{
+    1 => "Dang. Maybe today will be better",
+    2 => "Oh, Sorry to hear that.",
+    3 => "Nice, sounds like a good day",
+    4 => "Good stuff",
+    5 => "That is wonderful to hear",
+    _ => "Man you are off the charts!"
+
+};
+
+Console.WriteLine(response);
