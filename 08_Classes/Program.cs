@@ -21,7 +21,33 @@ greet.PrintHello("Tony");
 greet.PrintRandomGreeting();
 
 Calculator calculator = new Calculator();
-Console.WriteLine(calculator.Age(new DateTime(1991,05,04)));
+Console.WriteLine(calculator.Age(new DateTime(1991, 05, 04)));
+
+Person me = new Person();
+me.FirstName = "Jacob";
+me.LastName = "Brown";
+me.DateOfBirth = new DateTime(1991, 05, 04);
+
+me.Introduction();
+
+Person luke = new Person("Luke", "Skywalker", new DateTime(1977, 05, 25));
+luke.Introduction();
+
+// Accessing the donut property that holds an entire donut object on the luke variable
+luke.Donut = derrick;
+
+// Using the Donut classes built in methods
+Console.WriteLine($"{luke.FullName} has a {luke.Donut.GetDonutType()}");
+
+// Updating the donut in the luke Person class to have sprinkles
+luke.Donut.IsSprinkled = true;
+
+
+// Making a person and a donut at the same time.
+Person homer = new Person("Homer","Simpson",new DateTime(1980,07,04),"Glazed donut",true,true);
+homer.Introduction();
+Console.WriteLine($"He loves {homer.Donut.GetDonutType()}");
+
 
 namespace Classes
 {
@@ -102,11 +128,22 @@ namespace Classes
             string randomGreeting = availableGreeting.ElementAt(randomNumber);
             Console.WriteLine(randomGreeting);
         }
+        public string RandomGreeting()
+        {
+            string[] availableGreeting = new string[] { "Hello", "Howdy", "Sup", "Yo", "Good day to yous", "Wazzzup" };
+            int randomNumber = _random.Next(0, availableGreeting.Length);
+            string randomGreeting = availableGreeting.ElementAt(randomNumber);
+            return randomGreeting;
+        }
     }
 
     class Calculator
     {
         public int Add(int numOne, int numTwo)
+        {
+            return numOne + numTwo;
+        }
+        public double Add(double numOne, double numTwo)
         {
             return numOne + numTwo;
         }
@@ -137,6 +174,58 @@ namespace Classes
         }
     }
 
+    class Person
+    {
+        public Person() { }
+        public Person(string firstName, string lastName, DateTime dOB)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            DateOfBirth = dOB;
+        }
+        // Chaining the constructors together, looks for a matching constructor for those variables, then uses it
+        public Person(string firstName, string lastName, DateTime dOB, string donutType, bool isSprinkled, bool hasIcing) : this(firstName, lastName, dOB)
+        {
+            Donut = new Donut(donutType, isSprinkled, hasIcing, 2.99);
+        }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        //Readonly property
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+
+        public DateTime DateOfBirth { get; set; }
+
+        public int Age
+        {
+            get
+            {
+                // DRY style
+                Calculator calc = new Calculator();
+                return calc.Age(DateOfBirth);
+            }
+        }
+
+        public Donut Donut { get; set; }
+
+        public void Greet()
+        {
+            Greeter greeter = new Greeter();
+            // semantic satiation
+            greeter.PrintHello(FullName);
+        }
+
+        public void Introduction()
+        {
+            Greeter greeter = new Greeter();
+            Console.WriteLine($"{greeter.RandomGreeting()}, my name is {FullName} and I am {Age} years old!");
+        }
+    }
 }
 
 
