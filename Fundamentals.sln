@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForeachLoops", "07_Loops\Fo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoWhile", "07_Loops\DoWhile\DoWhile.csproj", "{9A6E99A3-0FB6-478E-8DD7-569FD71551EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes", "08_Classes\Classes.csproj", "{3A7722E5-7EA0-4392-8ECB-CD9FCFA5CA8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +96,10 @@ Global
 		{9A6E99A3-0FB6-478E-8DD7-569FD71551EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A6E99A3-0FB6-478E-8DD7-569FD71551EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A6E99A3-0FB6-478E-8DD7-569FD71551EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A7722E5-7EA0-4392-8ECB-CD9FCFA5CA8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A7722E5-7EA0-4392-8ECB-CD9FCFA5CA8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A7722E5-7EA0-4392-8ECB-CD9FCFA5CA8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A7722E5-7EA0-4392-8ECB-CD9FCFA5CA8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{022F3176-3EE8-4B50-A858-49482009454A} = {63D98BC9-EF0D-491E-86BB-514DE6AFA980}
